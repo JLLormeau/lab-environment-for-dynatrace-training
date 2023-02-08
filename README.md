@@ -39,7 +39,8 @@ user01;mydemoenvironment01.francecentral.cloudapp.azure.com
 user02;mydemoenvironment02.francecentral.cloudapp.azure.com
 user03;mydemoenvironment03.francecentral.cloudapp.azure.com
 
-## Step 2 - if option 8_full configuration with OneAgent installed + Monaco = Y
+## Step 2 - Deploy configuration with Monaco on Dynatrace env  
+if option 8_full configuration with OneAgent installed + Monaco = Y
 PARAMETER :  
 
 0) Tenant                               =xxxx.live.dynatrace.com  
