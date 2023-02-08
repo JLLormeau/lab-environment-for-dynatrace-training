@@ -1,0 +1,8 @@
+config:
+- Myawesomedashboard: "Myawesomedashboard.json"
+Myawesomedashboard:
+- name: "My awesome dashboard for {{.Env.Appname}}"
+- owner: "{{.Env.Email}}"
+- mzid: "/management-zone/mz-1.id"
+- appname: "{{.Env.Appname}}"
+- domain: "{{.Env.Hostname}}"

@@ -1,0 +1,6 @@
+config:
+- app-1: lab-app-web.json
+#- app-1: lab-app-web-without-framework.json
+
+app-1:
+- name: "{{.Env.Appname}}"

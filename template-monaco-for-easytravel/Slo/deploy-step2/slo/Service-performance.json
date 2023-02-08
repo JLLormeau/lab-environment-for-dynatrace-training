@@ -1,0 +1,22 @@
+{
+ "burnRateMetricKey": "func:slo.errorBudgetBurnRate.{{.mz}}___service___perf",
+ "denominatorValue": 0,
+ "description": " ",
+ "enabled": true,
+ "errorBudgetBurnRate": {
+  "burnRateVisualizationEnabled": true,
+  "fastBurnThreshold": 10
+ },
+ "evaluationType": "AGGREGATE",
+ "filter": "type(SERVICE),mzName({{.mz}}),serviceType(WEB_SERVICE,WEB_REQUEST_SERVICE)",
+ "metricDenominator": "",
+"metricExpression": "((builtin:service.response.time:avg:tounit(MicroSecond,MilliSecond):partition(resptime,value(good,lt(500))):splitBy():count:default(0))/(builtin:service.response.time:avg:splitBy():count)*(100))",
+ "metricKey": "func:slo.{{.mz}}___service___perf",
+ "metricNumerator": "",
+ "metricRate": "",
+ "name": "{{.name}}",
+ "target": 95,
+ "timeframe": "-1w",
+ "useRateMetric": true,
+ "warning": 98
+}

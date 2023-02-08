@@ -1,0 +1,47 @@
+{
+ "aggregation": "FIRST",
+ "confidential": false,
+ "dataSources": [
+  {
+   "enabled": true,
+   "methods": [
+    {
+     "argumentIndex": 1,
+     "capture": "ARGUMENT",
+     "method": {
+      "argumentTypes": [
+       "java.lang.String",
+       "java.util.Date",
+       "java.util.Date"
+      ],
+      "className": "com.dynatrace.easytravel.frontend.beans.SearchBean",
+      "methodName": "findJourneysByLocation",
+      "modifiers": [],
+      "returnType": "void",
+      "visibility": "PRIVATE"
+     }
+    }
+   ],
+   "scope": {
+    "tagOfProcessGroup": "app:{{.appname}}"
+   },
+   "source": "METHOD_PARAM",
+   "technology": "JAVA",
+   "valueProcessing": {
+    "splitAt": "",
+    "trim": false
+   }
+  }
+ ],
+ "dataType": "STRING",
+ "enabled": true,
+ "metadata": {
+  "clusterVersion": "1.215.107.20210414-181420",
+  "configurationVersions": [
+   3
+  ]
+ },
+ "name": "{{.name}}",
+ "normalization": "ORIGINAL",
+ "skipPersonalDataMasking": false
+}

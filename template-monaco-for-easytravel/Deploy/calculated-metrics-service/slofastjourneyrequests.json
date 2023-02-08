@@ -1,0 +1,50 @@
+{
+ "conditions": [
+  {
+   "attribute": "SERVICE_DISPLAY_NAME",
+   "comparisonInfo": {
+    "caseSensitive": false,
+    "comparison": "CONTAINS",
+    "negate": false,
+    "type": "FAST_STRING",
+    "value": "[{{.appname}}] - JourneyService"
+   }
+  },
+  {
+   "attribute": "RESPONSE_TIME",
+   "comparisonInfo": {
+    "comparison": "LOWER_THAN_OR_EQUAL",
+    "negate": false,
+    "type": "NUMBER",
+    "value": 100
+   }
+  }
+ ],
+ "dimensionDefinition": {
+  "dimension": "All requests",
+  "name": "Dimension",
+  "placeholders": [],
+  "topX": 10,
+  "topXAggregation": "SINGLE_VALUE",
+  "topXDirection": "DESCENDING"
+ },
+ "enabled": true,
+ "entityId": null,
+ "managementZones": [
+  "{{.appname}}"
+ ],
+ "metadata": {
+  "clusterVersion": "1.215.107.20210414-181420",
+  "configurationVersions": [
+   0
+  ]
+ },
+ "metricDefinition": {
+  "metric": "REQUEST_COUNT",
+  "requestAttribute": null
+ },
+ "name": "{{.name}}",
+ "tsmMetricKey": "calc:service.slo_fastjourneyrequests_{{.appname}}",
+ "unit": "COUNT",
+ "unitDisplayName": ""
+}

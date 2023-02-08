@@ -1,0 +1,13 @@
+config:
+- detect-rule1: lab-detect-rule.json
+#- detect-rule2: lab-detect-rule.json
+
+detect-rule1:
+- name: "{{.Env.Appname}}"
+- pattern: "{{.Env.Appname}}-www"
+- applicationId: "/application-web/app-1.id"
+
+detect-rule2:
+- name: "{{.Env.Hostname}}"
+- pattern: "{{.Env.Hostname}}"
+- applicationId: "/application-web/app-1.id"

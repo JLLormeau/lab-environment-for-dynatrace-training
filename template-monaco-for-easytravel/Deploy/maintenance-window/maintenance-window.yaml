@@ -1,0 +1,4 @@
+config:
+- training: training.json
+training:
+- name: "{{.Env.Appname}}"

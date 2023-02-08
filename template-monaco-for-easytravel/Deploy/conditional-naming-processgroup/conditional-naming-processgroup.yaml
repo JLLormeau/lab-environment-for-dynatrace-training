@@ -1,0 +1,4 @@
+config:
+- processgroup-naming: processgroup-naming.json
+processgroup-naming:
+- name: processgroup-naming

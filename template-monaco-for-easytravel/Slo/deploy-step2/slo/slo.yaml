@@ -1,0 +1,39 @@
+config:
+- Application-availability(browser): Application-availability(browser).json
+- Application-availability(http): Application-availability(http).json
+- Application-performance: Application-performance.json
+- Service-availability: Service-availability.json
+- Service-performance: Service-performance.json
+#- Infra-availability(process): Infra-availability(process).json
+- Infra-availability(host): Infra-availability(host).json
+- Infra-resourceCPU(host): Infra-resourceCPU(host).json
+- Infra-resourceMemory(host): Infra-resourceMemory(host).json
+Application-availability(browser):
+- name: {{.Env.MZ}} - Application - availability (browser) 
+- mz: {{.Env.MZ}}
+Application-availability(http):
+- name: {{.Env.MZ}} - Application - availability (http) 
+- mz: {{.Env.MZ}}
+Application-performance:
+- name: {{.Env.MZ}} - Application - performance
+- mz: {{.Env.MZ}}
+Service-performance:
+- name: {{.Env.MZ}} - Service - performance
+- mz: {{.Env.MZ}}
+#linux - metricId: "/calculated-metrics-service/requestcount_sloperf.id"
+#windows - metricId: "/todeploy/calculated-metrics-service/requestcount_sloperf.id"
+Service-availability:
+- name: {{.Env.MZ}} - Service - availability
+- mz: {{.Env.MZ}}
+Infra-availability(process):
+- name: {{.Env.MZ}} - Infrastructure - availability (process)
+- mz: {{.Env.MZ}}
+Infra-availability(host):
+- name: {{.Env.MZ}} - Infrastructure - availability (host)
+- mz: {{.Env.MZ}}
+Infra-resourceCPU(host):
+- name: {{.Env.MZ}} - Infrastructure - cpu idle (host)
+- mz: {{.Env.MZ}}
+Infra-resourceMemory(host):
+- name: {{.Env.MZ}} - Infrastructure - memory available (host)
+- mz: {{.Env.MZ}}

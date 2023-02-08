@@ -1,0 +1,7 @@
+config:
+- service-naming: service-naming.json
+- service-naming-nginx: service-naming-nginx.json
+service-naming:
+- name: service-naming
+service-naming-nginx:
+- name: service-naming-nginx
