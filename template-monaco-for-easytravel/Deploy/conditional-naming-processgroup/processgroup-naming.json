@@ -7,7 +7,7 @@
    0
   ]
  },
- "nameFormat": "[{HostGroup:Name}] - {DockerContainerGroupInstance:StrippedImageName/dynatrace\\/(.++)}",
+ "nameFormat": "[{HostGroup:Name}] - {DockerContainerGroupInstance:ContainerName}",
  "rules": [
   {
    "comparisonInfo": {
@@ -18,7 +18,7 @@
     "value": null
    },
    "key": {
-    "attribute": "DOCKER_STRIPPED_IMAGE_NAME"
+    "attribute": "DOCKER_CONTAINER_NAME"
    }
   }
  ],
