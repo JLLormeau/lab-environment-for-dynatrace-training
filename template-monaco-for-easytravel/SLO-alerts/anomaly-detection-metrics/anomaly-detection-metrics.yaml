@@ -1,0 +1,23 @@
+config:
+- application-performance-fastburnalert: application-performance-fastburnalert.json
+- frontendservice-availability-fastburnalert: frontendservice-availability-fastburnalert.json
+application-performance-fastburnalert:
+- name: '[{{.Env.slo_prefix}}] - application - performance - fast burn alert'
+- sloprefix: '{{.Env.slo_prefix}}'
+- threshold: '{{.Env.application_performance_burnrate}}'
+- samples: '3'
+- dealerting: '3'
+- violating: '1'
+- enable: '{{.Env.application_performance_fastburnalert_enable}}'
+- tenanturl: 'https://{{.Env.MyTenant}}'
+- sloid: '/slo/application-performance.id'
+frontendservice-availability-fastburnalert:
+- name: '[{{.Env.slo_prefix}}] - frontendservice - availability - fast burn alert'
+- sloprefix: '{{.Env.slo_prefix}}'
+- threshold: '{{.Env.frontendservice_availability_burnrate}}'
+- samples: '3'
+- dealerting: '3'
+- violating: '1'
+- enable: '{{.Env.frontendservice_availability_fastburnalert_enable}}'
+- tenanturl: 'https://{{.Env.MyTenant}}'
+- sloid: '/slo/frontendservice-availability.id'
