@@ -19,3 +19,20 @@ export LOCATION5=eastus #Reserved for the kubernetes lab
 export LOCATION6=eastus2 #Reserved for the kubernetes lab
 export START_ENV=0
 export NBENV=2
+#SLO &ITSM Integration
+#default application-performance configuration
+export application_performance_target=85 #for apdex = 0.85,minimum value of a good apdex
+export application_performance_warning=90
+export application_performance_burnrate="3.5"
+export application_performance_period="-1w"
+#default frontendservice_availability configuration
+export frontendservice_availability_target=95
+export frontendservice_availability_warning=98
+export frontendservice_availability_burnrate="3.5"
+export frontendservice_availability_period="-1w"
+#default metric events
+export application_performance_fastburnalert_enable="false" #check the padex is >0,85 befaore enabling the event
+export frontendservice_availability_fastburnalert_enable="true"
+#alerting profile
+export delay_for_real_time_alert=0 #minutes
+export delay_for_persitent_problem=60 #minutes
