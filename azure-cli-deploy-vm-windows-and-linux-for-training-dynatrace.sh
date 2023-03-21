@@ -363,9 +363,11 @@ do
 			if [[ $FULL_INSTALLATION = [Y] ]]
                         then
 				export MyTenant=$MyTenant
-				export MyToken=$MyToken
+				export MyToken=$MyToken 
 				export Appname="easytravel"$X$i
 				export MZ=$Appname
+				export mz_name=$Appname
+				export slo_prefix=$Appname
 				export Hostname=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
 			        number_of_email=`echo $list_user | tr -cd '@' | wc -c`
         			if [  $number_of_email -ge $(( $i + 1 )) ]
@@ -376,7 +378,8 @@ do
         			fi
 				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
 				sleep 5
-				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Slo/deploy-step2
+				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
+				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
                         fi				
         fi
         ###stop VM Linux
