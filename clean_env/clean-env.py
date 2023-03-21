@@ -256,7 +256,7 @@ def tag_clean(TENANT,TOKEN):
 # slo to clean
 def slo_clean(TENANT,TOKEN):
     print('clean slo')
-    uri=TENANT + API_SLO + '?Api-Token=' +TOKEN
+    uri=TENANT + API_SLO + '?pageSize=500&Api-Token=' +TOKEN
     #print(uri)
     datastore = queryDynatraceAPI(uri, TOKEN)
     #print(datastore)
