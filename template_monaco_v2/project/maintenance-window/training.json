@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      0
+    ],
+    "clusterVersion": "1.238.121.20220406-200859"
+  },
+  "name": "{{ .name }}",
+  "description": "",
+  "type": "PLANNED",
+  "enabled": true,
+  "suppression": "DETECT_PROBLEMS_DONT_ALERT",
+  "suppressSyntheticMonitorsExecution": false,
+  "scope": {
+    "entities": [],
+    "matches": [
+      {
+        "type": null,
+        "managementZoneId": "{{.mzid}}",
+        "mzId": "{{.mzid}}",
+        "tags": [],
+        "tagCombination": "AND"
+      }
+    ]
+  },
+  "schedule": {
+    "recurrenceType": "DAILY",
+    "recurrence": {
+      "dayOfWeek": null,
+      "dayOfMonth": null,
+      "startTime": "17:00",
+      "durationMinutes": 960
+    },
+    "start": "2021-04-18 00:00",
+    "end": "2029-12-31 23:59",
+    "zoneId": "Europe/Paris"
+  }
+}

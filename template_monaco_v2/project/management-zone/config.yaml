@@ -1,0 +1,10 @@
+configs:
+- id: mz-1
+  config:
+    name:
+      name: Appname
+      type: environment
+    template: lab-mz.json
+    skip: false
+  type:
+    api: management-zone
