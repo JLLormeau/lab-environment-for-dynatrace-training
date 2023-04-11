@@ -1,0 +1,16 @@
+configs:
+- id: profile-1
+  config:
+    name:
+      name: Appname
+      type: environment
+    parameters:
+      mzId:
+        configId: mz-1
+        configType: management-zone
+        property: id
+        type: reference
+    template: lab-alert-profile.json
+    skip: false
+  type:
+    api: alerting-profile

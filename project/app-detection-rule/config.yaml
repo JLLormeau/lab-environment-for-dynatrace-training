@@ -1,0 +1,19 @@
+configs:
+- id: detect-rule1
+  config:
+    name:
+      name: Appname
+      type: environment
+    parameters:
+      applicationId:
+        configId: app-1
+        configType: application-web
+        property: id
+        type: reference
+      pattern:
+        name: Appname
+        type: environment
+    template: lab-detect-rule.json
+    skip: false
+  type:
+    api: app-detection-rule
