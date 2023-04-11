@@ -1,0 +1,7 @@
+config:
+- notification-1: lab-notification.json
+
+notification-1:
+- name: "{{.Env.Appname}}"
+- email: "{{.Env.Email}}"
+- alertingprofileId: "/alerting-profile/profile-1.id"

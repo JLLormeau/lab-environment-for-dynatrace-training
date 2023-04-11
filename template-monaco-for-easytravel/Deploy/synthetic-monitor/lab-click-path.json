@@ -1,0 +1,311 @@
+{
+ "anomalyDetection": {
+  "loadingTimeThresholds": {
+   "enabled": false,
+   "thresholds": []
+  },
+  "outageHandling": {
+   "globalOutage": true,
+   "localOutage": false,
+   "localOutagePolicy": {
+    "affectedLocations": 1,
+    "consecutiveRuns": 3
+   },
+   "retryOnError": true
+  }
+ },
+ "automaticallyAssignedApps": [],
+ "createdFrom": "API",
+ "enabled": "{{.enable}}",
+ "entityId": "SYNTHETIC_TEST-6B59FBD754D59A11",
+ "events": [
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-4BFC10488DA70683",
+   "name": "loading of page easytravel home",
+   "sequenceNumber": 1
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-B77D9B28F264A0F0",
+   "name": "click on \"Book Now\"",
+   "sequenceNumber": 2
+  }
+ ],
+ "frequencyMin": 10,
+ "keyPerformanceMetrics": {
+  "loadActionKpm": "VISUALLY_COMPLETE",
+  "xhrActionKpm": "VISUALLY_COMPLETE"
+ },
+ "locations": [
+  "GEOLOCATION-E266126A762728A2",
+  "GEOLOCATION-8A751DADED5D705A"
+ ],
+ "managementZones": [],
+ "manuallyAssignedApps": [
+  "{{.applicationId}}"
+ ],
+ "name": "{{.name}}",
+ "script": {
+  "configuration": {
+   "device": {
+    "deviceName": "Desktop",
+    "orientation": "landscape"
+   },
+   "disableWebSecurity": false
+  },
+  "events": [
+   {
+    "description": "loading of page easytravel home",
+    "type": "navigate",
+    "url": "{{.url}}",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"Book Now\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "a:contains(\"Book Now\"):eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "div:contains(\"If you wish to stay in a hotel that has friendly staff and an inviting ambience that reminds you of home, then head to the Grand Hotel.\"):eq(4)"
+      },
+      {
+       "type": "css",
+       "value": ".commonButton:eq(5)"
+      },
+      {
+       "type": "css",
+       "value": "#recommendation div div:nth-child(2) div:nth-child(2) a:nth-child(5)"
+      },
+      {
+       "type": "css",
+       "value": "#recommendation div.icePnlPos div.icePnlGrp div.icePnlGrp a.commonButton:eq(0)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"iceform:j_idt154\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:j_idt154"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"image\"][src$=\"img/privacypolicy_lock.png\"][name=\"iceform:j_idt154\"]"
+      },
+      {
+       "type": "css",
+       "value": ".iceCmdBtn:eq(3)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform\\:j_idt153 input:nth-child(2)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"iceform:j_idt156:6:j_idt157\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:j_idt156\\:6\\:j_idt157"
+      },
+      {
+       "type": "css",
+       "value": "a:contains(\"fabianamac\"):eq(2)"
+      },
+      {
+       "type": "css",
+       "value": "div:contains(\"jacquelinever\"):eq(13)"
+      },
+      {
+       "type": "css",
+       "value": ".iceCmdLnk:eq(47)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform\\:j_idt156 a:nth-child(13)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"iceform:bookReviewNext\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:bookReviewNext"
+      },
+      {
+       "type": "css",
+       "value": "a:contains(\"Next\")"
+      },
+      {
+       "type": "css",
+       "value": "div:contains(\"To look for a different journey please press the\"):eq(4)"
+      },
+      {
+       "type": "css",
+       "value": ".commonButton:eq(5)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div:nth-child(5) a:nth-child(7)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"Privacy Policy\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "div:contains(\"Privacy Policy\"):eq(9)"
+      },
+      {
+       "type": "css",
+       "value": ".privacyPolicy"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div:nth-child(6) div:nth-child(5)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div.mainBox div.privacyPolicy"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "button": 0,
+    "description": "click on \"iceform:j_idt118\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:j_idt118"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"image\"][src$=\"img/privacypolicy_lock.png\"][name=\"iceform:j_idt118\"]"
+      },
+      {
+       "type": "css",
+       "value": ".iceCmdBtn:eq(3)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div:nth-child(6) div:nth-child(5) input"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"Next\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:bookPaymentNext"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"submit\"][name=\"iceform:bookPaymentNext\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[1][10]"
+      },
+      {
+       "type": "css",
+       "value": ".iceCmdBtn:eq(4)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div:nth-child(6) input:nth-child(7)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"Finish\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#iceform\\:bookFinishFinish"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"submit\"][name=\"iceform:bookFinishFinish\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[1][4]"
+      },
+      {
+       "type": "css",
+       "value": ".iceCmdBtn:eq(3)"
+      },
+      {
+       "type": "css",
+       "value": "#iceform div:nth-child(6) input:nth-child(6)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   }
+  ],
+  "type": "clickpath",
+  "version": "1.0"
+ },
+ "tags": [],
+ "type": "BROWSER"
+}

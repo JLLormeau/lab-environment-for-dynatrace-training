@@ -1,0 +1,5 @@
+config:
+- findJourneysByLocation: findJourneysByLocation.json
+findJourneysByLocation:
+- name: "{{.Env.Appname}}-findJourneysByLocation"
+- appname: "{{.Env.Appname}}"

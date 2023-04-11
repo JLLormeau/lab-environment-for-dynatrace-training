@@ -1,0 +1,4 @@
+config:
+- host-naming: host-naming.json
+host-naming:
+- name: host-naming

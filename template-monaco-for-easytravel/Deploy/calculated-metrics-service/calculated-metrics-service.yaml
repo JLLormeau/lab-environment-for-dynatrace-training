@@ -1,0 +1,5 @@
+config:
+- slofastjourneyrequests: slofastjourneyrequests.json
+slofastjourneyrequests:
+- name: "{{.Env.Appname}}-slo_fastjourneyrequests"
+- appname: "{{.Env.Appname}}"

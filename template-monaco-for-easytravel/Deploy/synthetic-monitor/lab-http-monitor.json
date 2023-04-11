@@ -1,0 +1,73 @@
+{
+ "anomalyDetection": {
+  "loadingTimeThresholds": {
+   "enabled": false,
+   "thresholds": [
+    {
+     "type": "TOTAL",
+     "valueMs": 0
+    }
+   ]
+  },
+  "outageHandling": {
+   "globalOutage": true,
+   "localOutage": false,
+   "localOutagePolicy": {
+    "affectedLocations": 1,
+    "consecutiveRuns": 3
+   }
+  }
+ },
+ "automaticallyAssignedApps": [],
+ "createdFrom": "API",
+ "enabled": "{{.enable}}",
+ "entityId": "HTTP_CHECK-212B3439FC032C76",
+ "frequencyMin": 5,
+ "locations": [
+  "GEOLOCATION-E266126A762728A2",
+  "GEOLOCATION-8A751DADED5D705A"
+ ],
+ "managementZones": [
+  {
+   "id": "-6494714325138593169",
+   "name": "{{.mz}}"
+  }
+ ],
+ "manuallyAssignedApps": [
+  "{{.applicationId}}"
+ ],
+ "name": "{{.name}}",
+ "requests": [
+  {
+   "entityId": "HTTP_CHECK_STEP-5A8FF4D52755ADB2",
+   "name": "{{.name}}",
+   "sequenceNumber": 1
+  }
+ ],
+ "script": {
+  "requests": [
+   {
+    "configuration": {
+     "acceptAnyCertificate": true,
+     "followRedirects": true
+    },
+    "description": "{{.name}}",
+    "method": "GET",
+    "url": "{{.url}}",
+    "validation": {
+     "rules": [
+      {
+       "passIfFound": false,
+       "type": "httpStatusesList",
+       "value": "\u003e=400"
+      }
+     ],
+     "rulesChaining": "or"
+    }
+   }
+  ],
+  "version": "1.0"
+ },
+ "tags": [],
+ "type": "HTTP"
+}
