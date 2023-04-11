@@ -43,6 +43,8 @@ do
 	echo user=user$X$i
 	echo MyTenant=$MyTenant
 	echo MyToken=$MyToken
+	echo DT_TENANT_URL=$MyTenant
+	echo DT_API_TOKEN=$MyToken
 	export Appname="easytravel"$X$i
 	echo Appname=$Appname
 	export MZ=$Appname
@@ -62,7 +64,8 @@ do
 	read  -p "==> redeploy config for user$X$i (y|n):  " response
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
-			./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
+			#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
+			./monaco deploy manifest.yaml -o template-monaco-for-easytravel/project
 			./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
 			./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
 			
