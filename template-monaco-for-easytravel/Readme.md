@@ -13,30 +13,24 @@ You will import :
 - sevice-naming
 - dashboard
 - synthetic
-- calculated service metric
-- slo
 
 1) your variables  
 	   
-	   export NEW_CLI=1
-	   export MyTenant=<YYYY>.live.dynatrace.com
-	   export MyToken=<dt.1234567890>
-	   export Appname=easytravel<XX>
-	   export Hostname=dynatracelab<XX>.<AzureRegion>.cloudapp.azure.com
-	   export Email=<your email of Dynatrace saas tenant connection>
-	   export EnableSynthetic=true
+	#Export variables Env
+	export DT_TENANT_URL=https://abcd.live.dynatrace.com
+	export DT_API_TOKEN=XXXX
+
+	#Export variables appli
+	export Appname=easytravelxx
+	export Hostname=zzzz.yyyy.cloudapp.azure.com
+	export Email=myemail@email.com
   
-2) validate the env variables 
+2) validate env variables 
 
-       echo "NEW_CLI="$NEW_CLI;echo "MyTenant=https://"$MyTenant;echo "MyToken="$MyToken;echo "Appname="$Appname;echo "Hostname="$Hostname;echo "Email="$Email; echo "EnableSynthetic="$EnableSynthetic  
-
-3) deploy the configuration 
-
-       cd;cd lab-environment-for-dynatrace-training
-       ./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
-       ./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Slo
-	 
-4) you can delete the configuration here 
+       echo "DT_TENANT_URL="$DT_TENANT_URL;echo "DT_API_TOKEN="$DT_API_TOKEN;echo "Appname="$Appname;echo "Hostname="$Hostname;echo "Email="$Email;
+       
+3) deploy configuration 
 
        cd;cd lab-environment-for-dynatrace-training
-       sed -i 's/Appname/'$Appname'/g' Delete/delete.yaml;./monaco deploy -e=environments.yaml Delete;sed -i 's/'$Appname'/Appname/g' Delete/delete.yaml
+       ./monaco deploy manifest.yaml
+
