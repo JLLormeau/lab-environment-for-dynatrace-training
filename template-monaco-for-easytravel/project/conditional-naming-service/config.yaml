@@ -1,0 +1,15 @@
+configs:
+- id: service-naming-nginx
+  config:
+    name: service-naming-nginx
+    template: service-naming-nginx.json
+    skip: false
+  type:
+    api: conditional-naming-service
+- id: service-naming
+  config:
+    name: service-naming
+    template: service-naming.json
+    skip: false
+  type:
+    api: conditional-naming-service
