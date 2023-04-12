@@ -378,8 +378,8 @@ do
         			fi
 				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
 				sleep 5
-				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
-				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
+				#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
+				#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
                         fi				
         fi
         ###stop VM Linux
