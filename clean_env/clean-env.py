@@ -443,7 +443,7 @@ def alertingprofile_clean(TENANT,TOKEN):
     if datastore != []:
         apilist = datastore['values']
         for entity in apilist:
-		if entity['name'] != 'Default':
+                if entity['name'] != 'Default':
                     uri = TENANT + API_ALERTING_PROFILE + '/' + entity['id'] + '?Api-Token=' + TOKEN
                     print('delete ' +entity['name']+'  '+entity['id'])
                     delDynatraceAPI(uri, TOKEN)
