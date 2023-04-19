@@ -12,8 +12,8 @@ Go to your Azure Cli and apply these commands
     cd;if [ -d "./lab-environment-for-dynatrace-training" ];then rm -rf ./lab-environment-for-dynatrace-training;fi
     git clone https://github.com/JLLormeau/lab-environment-for-dynatrace-training.git
     cd lab-environment-for-dynatrace-training;chmod +x ./azure-cli-deploy-vm-windows-and-linux-for-training-dynatrace.sh
-    wget https://github.com/dynatrace-oss/dynatrace-monitoring-as-code/releases/latest/download/monaco-linux-amd64;
-    mv monaco-linux-amd64 monaco;chmod +x monaco
+    curl -L https://github.com/dynatrace/dynatrace-configuration-as-code/releases/download/v1.8.9/monaco-linux-amd64 -o monaco
+    chmod +x monaco
     ./azure-cli-deploy-vm-windows-and-linux-for-training-dynatrace.sh
       
 
