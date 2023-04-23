@@ -1,6 +1,8 @@
 export NEW_CLI=1 
 export MyTenant=xxxx.live.dynatrace.com
 export MyToken=dt0c01.abcdefghij.abcdefghijklmn
+export DT_TENANT_URL="https://"$MyTenant
+export DT_API_TOKEN=$MyToken
 export PaasToken=$MyToken
 export list_user="user00@demo.com user01@demo.com"
 export EnableSynthetic=false
@@ -19,6 +21,13 @@ export LOCATION5=eastus #Reserved for the kubernetes lab
 export LOCATION6=eastus2 #Reserved for the kubernetes lab
 export START_ENV=0
 export NBENV=2
+#Monaco Integration
+export HostGroupName="easytravelxx"
+export DonainName="yyy.zzz.dynatrace.com"
+export Email="myemail@email.com"
+#synthetic location (for live.dynatrace.com)
+export PublicSyntheticLocation1="GEOLOCATION-E266126A762728A2" #Paris_AWS
+export PublicSyntheticLocation2="GEOLOCATION-8A751DADED5D705A" #Marseille_Azure
 #SLO &ITSM Integration
 #default application-performance configuration
 export application_performance_target=85 #for apdex = 0.85,minimum value of a good apdex
