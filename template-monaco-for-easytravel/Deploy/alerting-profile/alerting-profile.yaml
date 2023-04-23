@@ -1,6 +1,0 @@
-config:
-- profile-1: lab-alert-profile.json
-
-profile-1:
-- name: "{{.Env.Appname}}"
-- mzId: "/management-zone/mz-1.id"

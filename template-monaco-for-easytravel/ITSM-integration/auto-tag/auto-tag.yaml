@@ -1,7 +1,0 @@
-config:
-- itsm: ITSM.json
-- slo: SLO.json
-itsm:
-- name: 'dt_ITSM'
-slo:
-- name: 'dt_SLO'

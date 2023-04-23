@@ -1,8 +1,0 @@
-configs:
-- id: processgroup-naming
-  config:
-    name: processgroup-naming
-    template: processgroup-naming.json
-    skip: false
-  type:
-    api: conditional-naming-processgroup
