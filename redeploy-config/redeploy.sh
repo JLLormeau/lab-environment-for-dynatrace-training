@@ -63,7 +63,7 @@ do
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
 	        cat monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-		sed -i "s/config-id/$HostGoupName/g" monaco-easytravel/config.yml
+		sed -i "s/config-id/easytravel$X$i/g" monaco-easytravel/config.yml
 		sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
 		./monaco deploy -c manifest.yaml -p monaco-easytravel
 			
@@ -74,4 +74,7 @@ do
 	i=$(($i + 1))
 
 done
-#./monaco deploy manifest.yaml -p monaco-simply-smarter
+read  -p "==> redeploy simply smarter (y|n):  " response
+if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
+	./monaco deploy manifest.yaml -p monaco-simply-smarter
+fi
