@@ -62,9 +62,8 @@ do
 	read  -p "==> redeploy config for user$X$i (y|n):  " response
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
-			config=$HostGoupName
-			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-			sed -i "s/skip: true/skip: false/g" ../monaco-easytravel/config.yml
+			sed "s/config-id/$HostGoupName/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
+			sed -i "s/skip: true/skip: false/g" /monaco-easytravel/config.yml
 			./monaco deploy -c manifest.yaml -p monaco-easytravel
 			
 	else
