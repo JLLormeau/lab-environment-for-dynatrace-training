@@ -4,7 +4,6 @@ manifestVersion: "1.0"
 projects:
 - name: monaco-easytravel
 - name: monaco-simply-smarter
-- name: monaco-slo-qos
 
 environmentGroups:
 - name: default
