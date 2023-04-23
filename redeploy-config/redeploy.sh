@@ -41,8 +41,8 @@ do
 	echo ""
 	echo "#######################"
 	echo user=user$X$i
-	echo MyTenant=$MyTenant
-	echo MyToken=$MyToken
+	echo DT_TENANT_URL=$DT_TENANT_URL
+	echo DT_API_TOKEN=$DT_API_TOKEN
 	export HostGroupName="easytravel"$X$i
 	echo HostGroupName=$HostGroupName
 	export MZ=$HostGroupName
