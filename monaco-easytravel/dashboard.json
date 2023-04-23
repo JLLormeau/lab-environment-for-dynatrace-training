@@ -340,7 +340,7 @@
         "height": 38
       },
       "tileFilter": {},
-      "markdown": "[Visits](#usersearchoverview;filtrfilterAType=1;filtrfilterUserType=REAL_USER) - [Happy users 😄](#usersearchoverview;filtrfilterUXScore=3) - [Tolerated users 😏](#usersearchoverview;filtrfilterUXScore=2) -  [Frustated Users 😡](#usersearchoverview;filtrfilterUXScore=1)"
+      "markdown": "[Visits](/ui/user-sessions) - [Happy users 😄](/ui/user-sessions?filter=uxScore:Satisfying) - [Tolerated users 😏](/ui/user-sessions?filter=uxScore:Tolerable) -  [Frustated Users 😡](/ui/user-sessions?filter=uxScore:Frustrating)"
     },
     {
       "name": "Markdown",
