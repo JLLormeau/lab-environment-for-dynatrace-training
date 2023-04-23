@@ -358,13 +358,10 @@ do
         			else
                 			export Email="userdynatrace"$X$i"@gmail.com"
         		fi
-			config=`uuidgen`
-			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-			#sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
-			#sed "s/config-id/$config/g" monaco-easytravel/delete.yaml.ref >> delete_all.yaml
-			./monaco deploy manifest.yaml -p monaco-easytravel
-			#./monaco deploy manifest.yaml -p monaco-slo-and-itsm-integration
-
+				cat monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
+				sed -i "s/config-id/easytravel$X$i/g" monaco-easytravel/config.yml
+				sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
+				./monaco deploy -c manifest.yaml -p monaco-easytravel
              fi	
         fi
         ###stop VM Linux
