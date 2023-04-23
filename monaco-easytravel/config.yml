@@ -17,7 +17,7 @@ configs:
       format: "{{ .hostgroup }}-www"
       type: compound
       references:
-        - HostGroupName
+        - hostgroup
       hostgroup:
         type: environment
         name: HostGroupName
@@ -117,7 +117,7 @@ configs:
       format: "{{ .hostgroup }} - http monitor"
       type: compound
       references:
-        - HostGroupName
+        - hostgroup
       hostgroup:
         type: environment
         name: HostGroupName
@@ -151,7 +151,7 @@ configs:
       format: "{{ .hostgroup }} - click path"
       type: compound
       references:
-        - HostGroupName
+        - hostgroup
       hostgroup:
         type: environment
         name: HostGroupName
