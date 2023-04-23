@@ -1,8 +1,8 @@
 export NEW_CLI=1 
-export MyTenant=xxxx.live.dynatrace.com
-export MyToken=dt0c01.abcdefghij.abcdefghijklmn
-export DT_TENANT_URL="https://"$MyTenant
-export DT_API_TOKEN=$MyToken
+export DT_TENANT_URL=xxxx.live.dynatrace.com
+export DT_API_TOKENdt0c01.abcdefghij.abcdefghijklmn
+export MyTenant=`echo $DT_TENANT_URL| cut -d '/' -f 3`
+export MyToken=$DT_API_TOKEN
 export PaasToken=$MyToken
 export list_user="user00@demo.com user01@demo.com"
 export EnableSynthetic=false
