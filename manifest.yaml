@@ -2,9 +2,9 @@
 manifestVersion: "1.0"
 
 projects:
-- name: monaco_easytravel
-- name: monaco_simply_smarter
-- name: monaco_slo_and_itsm_integration
+- name: monaco-easytravel
+- name: monaco-simply-smarter
+- name: monaco-slo-and-itsm-integration
 
 environmentGroups:
 - name: default
