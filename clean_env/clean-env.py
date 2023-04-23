@@ -16,8 +16,8 @@ import sys
 ##################################
 ### Environment
 ##################################
-tenant=str(os.getenv('DT_TENANT_URL2'))
-token=str(os.getenv('DT_API_TOKEN2'))
+tenant=str(os.getenv('DT_TENANT_URL'))
+token=str(os.getenv('DT_API_TOKEN'))
 #print(tenant)
 #print(token)
 
