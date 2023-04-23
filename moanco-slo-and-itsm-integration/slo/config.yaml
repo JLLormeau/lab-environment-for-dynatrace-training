@@ -1,0 +1,53 @@
+configs:
+- id: frontendservice-availability
+  config:
+    name:
+      name: slo_prefix
+      type: environment
+    parameters:
+      burnrate:
+        name: frontendservice_availability_burnrate
+        type: environment
+      expression: (100)*(builtin:service.errors.server.successCount:splitBy())/(builtin:service.requestCount.server:splitBy())
+      filter:
+        name: mz_name
+        type: environment
+      period:
+        name: frontendservice_availability_period
+        type: environment
+      target:
+        name: frontendservice_availability_target
+        type: environment
+      warning:
+        name: frontendservice_availability_warning
+        type: environment
+    template: slo.json
+    skip: false
+  type:
+    api: slo
+- id: application-performance
+  config:
+    name:
+      name: slo_prefix
+      type: environment
+    parameters:
+      burnrate:
+        name: application_performance_burnrate
+        type: environment
+      expression: (100)*(builtin:apps.web.actionCount.category:filter(eq(\"Apdex category\",SATISFIED)):splitBy())/(builtin:apps.web.actionCount.category:splitBy())
+      filter:
+        name: mz_name
+        type: environment
+      period:
+        name: application_performance_period
+        type: environment
+      target:
+        name: application_performance_target
+        type: environment
+      warning:
+        name: application_performance_warning
+        type: environment
+    template: slo.json
+    skip: false
+  type:
+    api: slo
