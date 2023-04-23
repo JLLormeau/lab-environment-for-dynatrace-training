@@ -12,7 +12,7 @@ Go to your Azure Cli and apply these commands
     cd;if [ -d "./lab-environment-for-dynatrace-training" ];then rm -rf ./lab-environment-for-dynatrace-training;fi
     git clone https://github.com/JLLormeau/lab-environment-for-dynatrace-training.git
     cd lab-environment-for-dynatrace-training;chmod +x ./azure-cli-deploy-vm-windows-and-linux-for-training-dynatrace.sh
-    curl -L https://github.com/dynatrace/dynatrace-configuration-as-code/releases/download/v1.8.9/monaco-linux-amd64 -o monaco
+    curl -L https://github.com/Dynatrace/dynatrace-configuration-as-code/releases/latest/download/monaco-linux-amd64 -o monaco
     chmod +x monaco
     ./azure-cli-deploy-vm-windows-and-linux-for-training-dynatrace.sh
       
@@ -44,9 +44,8 @@ if option 8_full configuration with OneAgent installed + Monaco = Y
 PARAMETER :  
 
 0) Tenant                               =xxxx.live.dynatrace.com  
-1) API Token                            =dt0c01.abcdefghij.abcdefghijklmn  
-2) PaaS Token                           =dt0c01.abcdefghij.abcdefghijklmn  
-3) List of emails                       =user1@user1.com user2@user2.com (optionel)  
+1) API Token                            =dt0c01.abcdefghij.abcdefghijklmn   
+3) List of emails                       =user1@user1.com user2@user2.com (optional)  
 A) apply and deploy the VM - (Ctrl/c to quit)  
 
 Selet A for starting the installation (env 5 minutes / VM): 
