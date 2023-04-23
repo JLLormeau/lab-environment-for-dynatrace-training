@@ -62,10 +62,9 @@ do
 	read  -p "==> redeploy config for user$X$i (y|n):  " response
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
-			config=`uuidgen`
+			config=$HostGoupName
 			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-			#sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
-			sed "s/config-id/$config/g" delete.yaml.ref >> delete_all.yaml
+			sed -i "s/skip: true/skip: false/g" ../monaco-easytravel/config.yml
 			./monaco deploy manifest.yaml -p monaco-easytravel
 			
 	else
@@ -75,3 +74,4 @@ do
 	i=$(($i + 1))
 
 done
+./monaco deploy manifest.yaml -p monaco-simply-smarter
