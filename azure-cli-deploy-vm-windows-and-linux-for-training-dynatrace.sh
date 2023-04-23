@@ -208,7 +208,7 @@ then
 		echo "PARAMETER : "
 		echo ""
 		echo "0) Tenant (without https://)             	="$MyTenant
-		echo "1) Token (API + Paas)                       ="$MyToken
+		echo "1) Token (API + Paas)                           ="$MyToken
 		echo "2) List of emails		                ="$list_user
 		echo "A) apply and deploy the VM - (Ctrl/c to quit)"
 		echo ""
