@@ -16,9 +16,8 @@ import sys
 ##################################
 ### Environment
 ##################################
-tenant='https://'+str(os.getenv('MyTenant'))
-token=str(os.getenv('MyToken'))
-paastoken=str(os.getenv('PaasToken'))
+tenant=str(os.getenv('DT_TENANT_URL2'))
+token=str(os.getenv('DT_API_TOKEN2'))
 #print(tenant)
 #print(token)
 
@@ -47,6 +46,7 @@ API_CALC_METRIC='/api/config/v1/calculatedMetrics/service'
 API_SYNTH_LOCATION='/api/v1/synthetic/locations'
 API_WEB_APP='/api/config/v1/applications/web'
 API_ALERTING_PROFILE='/api/config/v1/alertingProfiles'
+API_NOTIFICATIONS='/api/config/v1/notifications'
 
 ##################################
 ## GENERIC functions
@@ -294,7 +294,7 @@ def token_clean(TENANT,TOKEN):
     if datastore != []:
         apilist = datastore['values']
         for entity in apilist:
-            if not token.startswith(entity['id']) and not paastoken.startswith(entity['id']) and not entity['name'].startswith('donotdelete'):
+            if not token.startswith(entity['id']) and not entity['name'].startswith('donotdelete'):
                 #print(entity['id'], entity['name'])
                 uri = TENANT + API_TOKEN + '/' + entity['id'] + '?Api-Token=' + TOKEN
                 print('delete ' +entity['name']+'  '+entity['id'])
@@ -449,11 +449,46 @@ def alertingprofile_clean(TENANT,TOKEN):
                     delDynatraceAPI(uri, TOKEN)
     return ()
 
+# request notification  to clean
+def alertingprofile_clean(TENANT,TOKEN):
+    print('clean alerting  profile')
+    uri=TENANT + API_ALERTING_PROFILE + '?Api-Token=' +TOKEN
+    #print(uri)
+    datastore = queryDynatraceAPI(uri, TOKEN)
+    #print(datastore)
+    if datastore != []:
+        apilist = datastore['values']
+        for entity in apilist:
+                if entity['name'] != 'Default':
+                    uri = TENANT + API_ALERTING_PROFILE + '/' + entity['id'] + '?Api-Token=' + TOKEN
+                    print('delete ' +entity['name']+'  '+entity['id'])
+                    delDynatraceAPI(uri, TOKEN)
+    return ()
 
+# request notifications  to clean
+def notifications_clean(TENANT,TOKEN):
+    print('clean notifications')
+    uri=TENANT + API_NOTIFICATIONS + '?Api-Token=' +TOKEN
+    #print(uri)
+    datastore = queryDynatraceAPI(uri, TOKEN)
+    #print(datastore)
+    if datastore != []:
+        apilist = datastore['values']
+        for entity in apilist:
+                if entity['name'] != 'Default':
+                    uri = TENANT + API_NOTIFICATIONS + '/' + entity['id'] + '?Api-Token=' + TOKEN
+                    print('delete ' +entity['name']+'  '+entity['id'])
+                    delDynatraceAPI(uri, TOKEN)
+    return ()
 
 #Clean
 print(tenant)
 print()
+
+#Clean
+print(tenant)
+print()
+
 
 dashboard_clean(tenant,token)
 mz_clean(tenant,token)
@@ -472,5 +507,6 @@ custom_calcmetric(tenant,token)
 synthloaction_clean(tenant,token)
 webapp_clean(tenant,token)
 alertingprofile_clean(tenant,token)
+notifications_clean(tenant,token)
     
 #manque  mda, logs config, logs event, availability process for mongo
