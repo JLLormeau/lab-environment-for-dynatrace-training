@@ -3,7 +3,6 @@
 # version beta
 
 . env.sh
-#NEW_CLI=1
 #SIZE_LINUX='Standard_B2ms' #2 CPU 8 GB
 #SIZE_WINDOWS='Standard_B2ms'   #2 CPU 8 GB
 #LOCATION1='francecentral'
