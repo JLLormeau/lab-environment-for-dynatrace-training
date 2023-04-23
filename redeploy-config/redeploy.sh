@@ -65,7 +65,7 @@ do
 			config=$HostGoupName
 			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
 			sed -i "s/skip: true/skip: false/g" ../monaco-easytravel/config.yml
-			./monaco deploy manifest.yaml -p monaco-easytravel
+			./monaco deploy -c manifest.yaml -p monaco-easytravel
 			
 	else
 			echo "user"$X$i" => response="$response
@@ -74,4 +74,4 @@ do
 	i=$(($i + 1))
 
 done
-./monaco deploy manifest.yaml -p monaco-simply-smarter
+#./monaco deploy manifest.yaml -p monaco-simply-smarter
