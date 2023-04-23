@@ -360,8 +360,8 @@ do
         		fi
 			config=`uuidgen`
 			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-			sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
-			sed "s/config-id/$config/g" monaco-easytravel/delete.yaml.ref > monaco-easytravel/$X$i_delete.yaml
+			#sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
+			#sed "s/config-id/$config/g" monaco-easytravel/delete.yaml.ref >> delete_all.yaml
 			./monaco deploy manifest.yaml -p monaco-easytravel
 			#./monaco deploy manifest.yaml -p monaco-slo-and-itsm-integration
 
