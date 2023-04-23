@@ -140,7 +140,7 @@ configs:
         name: PublicSyntheticLocation2
         type: environment
     template: synthetic-http-monitor.json
-    skip: false
+    skip: true
   type:
     api: synthetic-monitor
 ## browser monitor
@@ -174,7 +174,7 @@ configs:
         name: PublicSyntheticLocation2
         type: environment
     template: synthetic-browser-monitor.json
-    skip: false
+    skip: true
   type:
     api: synthetic-monitor
 ## maintenance window based on management zone (disable notification on not business hours) 
