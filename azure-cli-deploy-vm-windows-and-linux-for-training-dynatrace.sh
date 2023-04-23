@@ -350,7 +350,7 @@ do
 				export HostGroupName="easytravel"$X$i
 				export mz_name=$HostGroupName
 				export slo_prefix=$HostGroupName
-				export DonainName=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
+				export DomainName=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
 			        number_of_email=`echo $list_user | tr -cd '@' | wc -c`
         			if [  $number_of_email -ge $(( $i + 1 )) ]
         			then
