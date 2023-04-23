@@ -43,13 +43,13 @@ do
 	echo user=user$X$i
 	echo MyTenant=$MyTenant
 	echo MyToken=$MyToken
-	export Appname="easytravel"$X$i
-	echo Appname=$Appname
-	export MZ=$Appname
-	export mz_name=$Appname
-	export slo_prefix=$Appname
+	export HostGroupName="easytravel"$X$i
+	echo HostGroupName=$HostGroupName
+	export MZ=$HostGroupName
+	export mz_name=$HostGroupName
+	export slo_prefix=$HostGroupName
 	export Hostname=$DOMAIN_NAME_DEFAULT$X$i"."$LOCATION".cloudapp.azure.com"
-	echo Hostname=$Hostname
+	echo DomainName=$Hostname
 	number_of_email=`echo $list_user | tr -cd '@' | wc -c`
         
 	if [  $number_of_email -ge $(( $i + 1 )) ]; then
@@ -62,9 +62,10 @@ do
 	read  -p "==> redeploy config for user$X$i (y|n):  " response
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
-			./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
-			#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
-			#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
+			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
+			sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
+			sed "s/config-id/$config/g" monaco-easytravel/delete.yaml.ref > monaco-easytravel/$X$i_delete.yaml
+			./monaco deploy manifest.yaml -p monaco-easytravel
 			
 	else
 			echo "user"$X$i" => response="$response
