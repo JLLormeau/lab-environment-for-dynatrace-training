@@ -3,6 +3,8 @@ manifestVersion: "1.0"
 
 projects:
 - name: project
+- name: simply_smarter
+- name: slo
 
 environmentGroups:
 - name: default
