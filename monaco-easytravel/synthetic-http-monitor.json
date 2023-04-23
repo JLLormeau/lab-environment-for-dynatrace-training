@@ -1,0 +1,74 @@
+{
+  "anomalyDetection": {
+    "loadingTimeThresholds": {
+      "enabled": false,
+      "thresholds": [
+        {
+          "type": "TOTAL",
+          "valueMs": 0
+        }
+      ]
+    },
+    "outageHandling": {
+      "globalOutage": true,
+      "globalOutagePolicy": {
+        "consecutiveRuns": 1
+      },
+      "localOutage": false,
+      "localOutagePolicy": {
+        "affectedLocations": null,
+        "consecutiveRuns": null
+      }
+    }
+  },
+  "automaticallyAssignedApps": ["{{ .applicationId }}"],
+  "createdFrom": "API",
+  "enabled": false,
+  "frequencyMin": 5,
+  "locations": [
+    "{{ .site1 }}",
+    "{{ .site2 }}"
+  ],
+  "managementZones": [],
+  "manuallyAssignedApps": [],
+  "name": "{{.name}}",
+  "requests": [
+    {
+      "name": "request1",
+      "sequenceNumber": 1
+    }
+  ],
+  "script": {
+    "requests": [
+      {
+        "configuration": {
+          "acceptAnyCertificate": true,
+          "followRedirects": true,
+          "shouldNotPersistSensitiveData": false
+        },
+        "description": "easytravel01-httpmonitor",
+        "method": "GET",
+        "url": "http://{{ .domain }}",
+        "validation": {
+          "rules": [
+            {
+              "passIfFound": false,
+              "type": "httpStatusesList",
+              "value": "\u003e=400"
+            }
+          ]
+        }
+      }
+    ],
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "context": "CONTEXTLESS",
+      "key": "dt_ITSM",
+      "source": "RULE_BASED",
+      "value": "real_time_alert"
+    }
+  ],
+  "type": "HTTP"
+}
