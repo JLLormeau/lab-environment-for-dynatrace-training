@@ -1,0 +1,26 @@
+configs:
+- id: ITSMintegrationproblemsnotification
+  config:
+    name: dt_ITSM_integration_problems_notification
+    parameters:
+      delay:
+        name: delay_for_persitent_problem
+        type: environment
+      realtime:
+        name: delay_for_real_time_alert
+        type: environment
+    template: ITSMintegrationproblemsnotification.json
+    skip: false
+  type:
+    api: alerting-profile
+- id: ITSMintegrationSLOalertsnotification
+  config:
+    name: dt_ITSM_integration_SLO_alerts_notification
+    parameters:
+      realtime:
+        name: delay_for_real_time_alert
+        type: environment
+    template: ITSMintegrationSLOalertsnotification.json
+    skip: false
+  type:
+    api: alerting-profile

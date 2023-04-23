@@ -1,0 +1,27 @@
+{
+ "alertCondition": "ABOVE",
+ "dealertingSamples": "{{.dealerting}}",
+ "description": "The SLO \"[{{.sloprefix}}] - frontendservice - availability\" is at risk. The burn-rate exceeded {threshold}.\n{{.tenanturl}}/ui/slo?id={{.sloid}}",
+ "disabledReason": "NONE",
+ "enabled": "{{.enable}}",
+ "eventType": "CUSTOM_ALERT",
+ "metricSelector": "func:slo.errorBudgetBurnRate._{{.sloprefix}}____frontendservice___availability",
+ "monitoringStrategy": {
+  "alertCondition": "ABOVE",
+  "alertingOnMissingData": false,
+  "dealertingSamples": "{{.dealerting}}",
+  "samples": "{{.samples}}",
+  "threshold": "{{.threshold}}",
+  "type": "STATIC_THRESHOLD",
+  "unit": "UNSPECIFIED",
+  "violatingSamples": "{{.violating}}"
+ },
+ "name": "{{ .name }}",
+ "primaryDimensionKey": "dt.entity.service",
+ "samples": "{{.samples}}",
+ "severity": "CUSTOM_ALERT",
+ "threshold": "{{.threshold}}",
+ "unit": "UNSPECIFIED",
+ "violatingSamples": "{{.violating}}",
+ "warningReason": "NONE"
+}

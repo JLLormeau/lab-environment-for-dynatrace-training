@@ -1,0 +1,15 @@
+configs:
+- id: itsm
+  config:
+    name: dt_ITSM
+    template: ITSM.json
+    skip: false
+  type:
+    api: auto-tag
+- id: slo
+  config:
+    name: dt_SLO
+    template: SLO.json
+    skip: false
+  type:
+    api: auto-tag

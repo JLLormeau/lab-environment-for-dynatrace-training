@@ -1,0 +1,61 @@
+configs:
+- id: frontendservice-availability-fastburnalert
+  config:
+    name:
+      name: slo_prefix
+      type: environment
+    parameters:
+      dealerting: "3"
+      enable:
+        name: frontendservice_availability_fastburnalert_enable
+        type: environment
+      samples: "3"
+      sloid:
+        configId: frontendservice-availability
+        configType: slo
+        property: id
+        type: reference
+      sloprefix:
+        name: slo_prefix
+        type: environment
+      tenanturl:
+        name: MyTenant
+        type: environment
+      threshold:
+        name: frontendservice_availability_burnrate
+        type: environment
+      violating: "1"
+    template: frontendservice-availability-fastburnalert.json
+    skip: false
+  type:
+    api: anomaly-detection-metrics
+- id: application-performance-fastburnalert
+  config:
+    name:
+      name: slo_prefix
+      type: environment
+    parameters:
+      dealerting: "3"
+      enable:
+        name: application_performance_fastburnalert_enable
+        type: environment
+      samples: "3"
+      sloid:
+        configId: application-performance
+        configType: slo
+        property: id
+        type: reference
+      sloprefix:
+        name: slo_prefix
+        type: environment
+      tenanturl:
+        name: MyTenant
+        type: environment
+      threshold:
+        name: application_performance_burnrate
+        type: environment
+      violating: "1"
+    template: application-performance-fastburnalert.json
+    skip: false
+  type:
+    api: anomaly-detection-metrics
