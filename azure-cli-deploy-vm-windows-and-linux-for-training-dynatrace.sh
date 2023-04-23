@@ -366,14 +366,15 @@ do
                 			export Email=`echo $list_user | cut -d" " -f$(( $i + 1 ))`
         			else
                 			export Email="userdynatrace"$X$i"@gmail.com"
-        			fi
-			    config=`uuidgen`
-				sed "s/config-id/$config/g" template_monaco_v2/project/config.yml.ref > template_monaco_v2/project/config.yml
-				sed -i "s/skip: true/skip: false/g" template_monaco_v2/project/config.yml
-				sed "s/config-id/$config/g" template_monaco_v2/delete.yaml.ref > template_monaco_v2/delete$X$i.yaml
-				./monaco deploy manifest.yaml -o template_monaco_v2
+        		fi
+			config=`uuidgen`
+			sed "s/config-id/$config/g" monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
+			sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
+			sed "s/config-id/$config/g" monaco-easytravel/delete.yaml.ref > monaco-easytravel/$X$i_delete.yaml
+			./monaco deploy manifest.yaml -p monaco-easytravel
+			./monaco deploy manifest.yaml -p moanco-slo-and-itsm-integration
 
-             fi				
+             fi	
         fi
         ###stop VM Linux
         if [[ $VM_STARTED = [N] ]]
