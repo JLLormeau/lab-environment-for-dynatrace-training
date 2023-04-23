@@ -218,12 +218,11 @@ then
 		echo ""
 		echo "0) Tenant                         	="$MyTenant
 		echo "1) API Token                            ="$MyToken
-		echo "2) PaaS Token	                        ="$PaasToken
-		echo "3) List of emails		                ="$list_user
+		echo "2) List of emails		                ="$list_user
 		echo "A) apply and deploy the VM - (Ctrl/c to quit)"
 		echo ""
 		sleep 0.1
-		read  -p "Input Selection (0, 1, 2, 3  or A): " reponse
+		read  -p "Input Selection (0, 1, 2 or A): " reponse
 
 		case "$reponse" in
 			"0") verif="ko"
@@ -240,14 +239,7 @@ then
 				else verif="ko"; echo "bad API Token" ; value="ko";read pressanycase;
 			     fi;done
 			;;
-			"2") verif="ko"
-			      until [ $verif = "ok" ]; do read  -p "2) PaaS Token : dt0c01.abcdefghij.abcdefghijklmn :    " PaasToken2
-			       if [[ $PaasToken2 =~ ^dt[a-z0-9]++\.[a-zA-Z0-9]++\.[a-zA-Z0-9]++ ]] ;then
-				verif="ok";sed -i s/PaasToken=$PaasToken/PaasToken=$PaasToken2/g env.sh;. env.sh
-				else verif="ko"; echo "bad PaaS Token" ; value="ko";read pressanycase;
-			     fi;done
-			;;
-			"3") verif="ko"; testemail="ok";
+			"2") verif="ko"; testemail="ok";
 				  until [ $verif = "ok" ]; do read  -p "3) list of email : user1@ser.com user2@user2.com :    " list_user2
 				   for i in ${list_user2// / } ; do
 							if [[ ! "$i" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$ ]]
@@ -357,18 +349,17 @@ do
 			if [[ $FULL_INSTALLATION = [Y] ]]
                         then
 				export MyTenant=$MyTenant
-				export PaasToken=$PaasToken
-                                az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && wget  -O Dynatrace-OneAgent-Linux-latest.sh \"https://"$MyTenant"/api/v1/deployment/installer/agent/unix/default/latest?arch=x86&flavor=default\" --header=\"Authorization: Api-Token "$PaasToken"\" && sudo /bin/sh Dynatrace-OneAgent-Linux-latest.sh --set-host-group=easytravel"$X$i" --set-host-property=env=sandbox";
+				export MyToken=$MyToken
+                                az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && wget  -O Dynatrace-OneAgent-Linux-latest.sh \"https://"$MyTenant"/api/v1/deployment/installer/agent/unix/default/latest?arch=x86&flavor=default\" --header=\"Authorization: Api-Token "$MyToken"\" && sudo /bin/sh Dynatrace-OneAgent-Linux-latest.sh --set-host-group=easytravel"$X$i" --set-host-property=env=sandbox";
                         fi				
 			if [[ $FULL_INSTALLATION = [Y] ]]
                         then
 				export MyTenant=$MyTenant
 				export MyToken=$MyToken 
-				export Appname="easytravel"$X$i
-				export MZ=$Appname
-				export mz_name=$Appname
-				export slo_prefix=$Appname
-				export Hostname=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
+				export HostGroupName="easytravel"$X$i
+				export mz_name=$HostGroupName
+				export slo_prefix=$HostGroupName
+				export DonainName=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
 			        number_of_email=`echo $list_user | tr -cd '@' | wc -c`
         			if [  $number_of_email -ge $(( $i + 1 )) ]
         			then
@@ -376,11 +367,13 @@ do
         			else
                 			export Email="userdynatrace"$X$i"@gmail.com"
         			fi
-				./monaco deploy -e=environments.yaml template-monaco-for-easytravel/Deploy
-				sleep 5
-				#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/ITSM-integration
-				#./monaco deploy -e=environments.yaml template-monaco-for-easytravel/SLO-alerts
-                        fi				
+			    config=`uuidgen`
+				sed "s/config-id/$config/g" template_monaco_v2/project/config.yml.ref > template_monaco_v2/project/config.yml
+				sed -i "s/skip: true/skip: false/g" template_monaco_v2/project/config.yml
+				sed "s/config-id/$config/g" template_monaco_v2/delete.yaml.ref > template_monaco_v2/delete$X$i.yaml
+				./monaco deploy manifest.yaml -o template_monaco_v2
+
+             fi				
         fi
         ###stop VM Linux
         if [[ $VM_STARTED = [N] ]]
