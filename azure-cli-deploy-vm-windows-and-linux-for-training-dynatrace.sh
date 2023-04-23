@@ -4,20 +4,12 @@
 
 . env.sh
 #NEW_CLI=1
-#EnableSynthetic=true
-#TIME=`date +%Y%m%d%H%M%S`
-#DOMAIN_NAME_DEFAULT='demdomainename'$TIME
-#PASSWORD='DummyP@ssword00'
 #SIZE_LINUX='Standard_B2ms' #2 CPU 8 GB
 #SIZE_WINDOWS='Standard_B2ms'   #2 CPU 8 GB
 #LOCATION1='francecentral'
 #LOCATION2='westeurope'
 #LOCATION3='northeurope'
 #LOCATION4='uksouth'
-#LOCATION5='eastus' #Reserved for the kubernetes lab
-#LOCATION6='eastus2' #Reserved for the kubernetes lab
-#START_ENV=0
-#NBENV=2
 APPLY="N"
 END_ENV=$(($END_ENV-$START_ENV))
 WINDOWS_ENV="N"
