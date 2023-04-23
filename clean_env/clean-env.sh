@@ -3,7 +3,7 @@
 # version beta
 
 . ../env.sh
-DIR_MONACO="template-monaco-for-easytravel"
+./monaco delete
 if [ $START_ENV -lt 1 ]
 then
 	END_ENV=$(($NBENV - 1))
