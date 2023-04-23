@@ -14,15 +14,15 @@ configs:
 - id: config-id
   config:
     name:
-      format: "{{ .HostGroupName }}-www"
+      format: "{{ .hostgroup }}-www"
       type: compound
       references:
         - HostGroupName
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -114,15 +114,15 @@ configs:
 - id: config-id
   config:
     name:
-      format: "{{ .HostGroupName }} - http monitor"
+      format: "{{ .hostgroup }} - http monitor"
       type: compound
       references:
         - HostGroupName
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -148,15 +148,15 @@ configs:
 - id: config-id-2
   config:
     name: 
-      format: "{{ .HostGroupName }} - click path"
+      format: "{{ .hostgroup }} - click path"
       type: compound
       references:
         - HostGroupName
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -202,7 +202,7 @@ configs:
       name: HostGroupName
       type: environment
     parameters:
-      HostGroupName:
+      hostgroup:
         name: HostGroupName
         type: environment
       domain:
