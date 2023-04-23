@@ -1,0 +1,15 @@
+{
+ "enabled": true,
+ "errorBudgetBurnRate": {
+  "burnRateVisualizationEnabled": true,
+  "fastBurnThreshold": "{{.burnrate}}"
+ },
+ "evaluationType": "AGGREGATE",
+ "filter": "{{.filter}}",
+ "metricExpression": "{{.expression}}",
+ "name": "{{ .name }}",
+ "target": "{{.target}}",
+ "timeframe": "{{.period}}",
+ "useRateMetric": true,
+ "warning": "{{.warning}}"
+}
