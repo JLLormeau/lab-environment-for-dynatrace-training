@@ -1,8 +1,0 @@
-configs:
-- id: host-naming
-  config:
-    name: host-naming
-    template: host-naming.json
-    skip: false
-  type:
-    api: conditional-naming-host
