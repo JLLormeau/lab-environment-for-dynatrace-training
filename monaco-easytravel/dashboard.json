@@ -1,10 +1,4 @@
 {
-  "metadata": {
-    "configurationVersions": [
-      5
-    ],
-    "clusterVersion": "1.238.121.20220406-200859"
-  },
   "dashboardMetadata": {
 	"name": "{{ .name }}",
 	"owner": "{{.owner}}",
