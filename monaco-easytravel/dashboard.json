@@ -13,7 +13,7 @@
       "timeframe": "-1h",
       "managementZone": {
 		"id": "{{.mzid}}",
-		"name": "{{.hostgroup}}"
+		"name": "{{.name}}"
       }
     },
     "tags": [
@@ -63,7 +63,7 @@
         "height": 152
       },
       "tileFilter": {},
-      "markdown": "## {{.hostgroup}} - {{.owner}}\n💻 Linux : [https://{{.domain}}](https://{{.domain}})      \n✈  Easytravel-angular: [http://{{.domain}}:9079](http://{{.domain}}:9079)    \n✈  Easytravel-classic: [http://{{.domain}}/orange.jsf](http://{{.domain}}/orange.jsf)  \n🛸 How to use Dynatrace : [https://www.dynatrace.com/support/help/how-to-use-dynatrace/](https://www.dynatrace.com/support/help/how-to-use-dynatrace/)     \n📊 Bizopsconfigurator : [https://dynatrace.github.io/BizOpsConfigurator/index.html](https://dynatrace.github.io/BizOpsConfigurator/index.html#miscTools)"
+      "markdown": "## {{.name}} - {{.owner}}\n💻 Linux : [https://{{.domain}}](https://{{.domain}})      \n✈  Easytravel-angular: [http://{{.domain}}:9079](http://{{.domain}}:9079)    \n✈  Easytravel-classic: [http://{{.domain}}/orange.jsf](http://{{.domain}}/orange.jsf)  \n🛸 How to use Dynatrace : [https://www.dynatrace.com/support/help/how-to-use-dynatrace/](https://www.dynatrace.com/support/help/how-to-use-dynatrace/)     \n📊 Bizopsconfigurator : [https://dynatrace.github.io/BizOpsConfigurator/index.html](https://dynatrace.github.io/BizOpsConfigurator/index.html#miscTools)"
     },
     {
       "name": "Host health",
