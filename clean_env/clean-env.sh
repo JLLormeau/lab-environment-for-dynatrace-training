@@ -3,7 +3,6 @@
 # version beta
 
 . ../env.sh
-./monaco delete
 if [ $START_ENV -lt 1 ]
 then
 	END_ENV=$(($NBENV - 1))
@@ -21,5 +20,7 @@ while [ "$response" !=  "$MyTenant"  ]
 python clean-env.py
 python ../mongo/process_mongo_availability.py disable
 
+cd ..
+./monaco delete
 
 
