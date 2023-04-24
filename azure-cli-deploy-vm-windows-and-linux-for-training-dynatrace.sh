@@ -341,13 +341,13 @@ do
                         then
 				export MyTenant=$MyTenant
 				export MyToken=$MyToken
-                                az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && wget  -O Dynatrace-OneAgent-Linux-latest.sh \"https://"$MyTenant"/api/v1/deployment/installer/agent/unix/default/latest?arch=x86&flavor=default\" --header=\"Authorization: Api-Token "$MyToken"\" && sudo /bin/sh Dynatrace-OneAgent-Linux-latest.sh --set-host-group=easytravel"$X$i" --set-host-property=env=sandbox";
+                                az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && wget  -O Dynatrace-OneAgent-Linux-latest.sh \"https://"$MyTenant"/api/v1/deployment/installer/agent/unix/default/latest?arch=x86&flavor=default\" --header=\"Authorization: Api-Token "$MyToken"\" && sudo /bin/sh Dynatrace-OneAgent-Linux-latest.sh --set-host-group=lab_easytravel"$X$i" --set-host-property=env=sandbox";
                         fi				
 			if [[ $FULL_INSTALLATION = [Y] ]]
                         then
 				export MyTenant=$MyTenant
 				export MyToken=$MyToken 
-				export HostGroupName="easytravel"$X$i
+				export HostGroupName="lab_easytravel"$X$i
 				export mz_name=$HostGroupName
 				export slo_prefix=$HostGroupName
 				export DomainName=$RESOURCE_GROUP"."$LOCATION".cloudapp.azure.com"
@@ -359,7 +359,7 @@ do
                 			export Email="userdynatrace"$X$i"@gmail.com"
         		fi
 				cat monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-				sed -i "s/config-id/easytravel$X$i/g" monaco-easytravel/config.yml
+				sed -i "s/config-id/lab_easytravel$X$i/g" monaco-easytravel/config.yml
 				sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
 				./monaco deploy -c manifest.yaml -p monaco-easytravel
              fi	
