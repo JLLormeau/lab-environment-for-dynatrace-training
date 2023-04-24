@@ -43,7 +43,7 @@ do
 	echo user=user$X$i
 	echo DT_TENANT_URL=$DT_TENANT_URL
 	echo DT_API_TOKEN=$DT_API_TOKEN
-	export HostGroupName="easytravel"$X$i
+	export HostGroupName="lab_easytravel"$X$i
 	echo HostGroupName=$HostGroupName
 	export MZ=$HostGroupName
 	export mz_name=$HostGroupName
@@ -63,7 +63,7 @@ do
 	
 	if [ "$response" = "yes" ] || [ "$response" = "YES" ] || [ "$response" = "Y" ] || [ "$response" = "y" ]; then
 	        cat monaco-easytravel/config.yml.ref > monaco-easytravel/config.yml
-		sed -i "s/config-id/easytravel$X$i/g" monaco-easytravel/config.yml
+		sed -i "s/config-id/lab_easytravel$X$i/g" monaco-easytravel/config.yml
 		sed -i "s/skip: true/skip: false/g" monaco-easytravel/config.yml
 		./monaco deploy -c manifest.yaml -p monaco-easytravel
 			
