@@ -323,13 +323,13 @@ do
 	###Install EasyTravel
         if [[ $EASYTRAVEL_ENV = [Y] ]]
         then
-                #az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/easytravel"$X$i"-www/g' docker-compose.yml && chmod +x start-stop-easytravel.sh && cp start-stop-easytravel.sh /etc/init.d/start-stop-easytravel.sh && update-rc.d start-stop-easytravel.sh defaults";
+                #az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/lab_easytravel"$X$i"-www/g' docker-compose.yml && chmod +x start-stop-easytravel.sh && cp start-stop-easytravel.sh /etc/init.d/start-stop-easytravel.sh && update-rc.d start-stop-easytravel.sh defaults";
 	            if [[ $SHORT_FORMAT = [Y] ]]
                     then
-                	az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/easytravel"$X$i"-www/g' docker-compose.yml docker-compose-issue.yml && chmod +x start-stop-easytravel.sh easytravel_run_scenario.sh  && cp easytravel_run_scenario.sh /etc/init.d/easytravel_run_scenario.sh && update-rc.d easytravel_run_scenario.sh defaults";
+                	az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/lab_easytravel"$X$i"-www/g' docker-compose.yml docker-compose-issue.yml && chmod +x start-stop-easytravel.sh easytravel_run_scenario.sh  && cp easytravel_run_scenario.sh /etc/init.d/easytravel_run_scenario.sh && update-rc.d easytravel_run_scenario.sh defaults";
 		    
 		    else		    
-                	az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/easytravel"$X$i"-www/g' docker-compose.yml docker-compose-issue.yml && chmod +x start-stop-easytravel.sh && cp start-stop-easytravel.sh /etc/init.d/start-stop-easytravel.sh && update-rc.d start-stop-easytravel.sh defaults";
+                	az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "cd /home && git clone https://github.com/JLLormeau/dynatracelab_easytraveld.git && sudo chmod 777 dynatracelab_easytraveld && cd dynatracelab_easytraveld && sed -i 's/easytravel-www/lab_easytravel"$X$i"-www/g' docker-compose.yml docker-compose-issue.yml && chmod +x start-stop-easytravel.sh && cp start-stop-easytravel.sh /etc/init.d/start-stop-easytravel.sh && update-rc.d start-stop-easytravel.sh defaults";
 		    fi
             	
 			
