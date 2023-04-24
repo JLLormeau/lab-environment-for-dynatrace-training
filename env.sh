@@ -22,7 +22,7 @@ export LOCATION6=eastus2 #Reserved for the kubernetes lab
 export START_ENV=0
 export NBENV=2
 #Monaco Integration
-export HostGroupName="easytravelxx"
+export HostGroupName="lab_easytravelxx"
 export DonainName="yyy.zzz.dynatrace.com"
 export Email="myemail@email.com"
 #synthetic location (for live.dynatrace.com)
