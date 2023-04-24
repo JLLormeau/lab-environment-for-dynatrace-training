@@ -3,7 +3,7 @@
   "rules": [
     {
       "enabled": true,
-      "valueFormat": "{HostGroup:Name}",
+      "valueFormat": "{HostGroup:Name/_(.++)$}",
       "valueNormalization": "Leave text as-is",
       "type": "ME",
       "attributeRule": {
