@@ -1,0 +1,11 @@
+delete:
+  - application-web/config-id
+  - app-detection-rule/config-id
+  - app-detection-rule/config-id-2
+  - alerting-profile/config-id
+  - management-zone/config-id
+  - notification/config-id
+  - synthetic-monitor/config-id
+  - synthetic-monitor/config-id-2
+  - maintenance-window/config-id
+  - dashboard/config-id
