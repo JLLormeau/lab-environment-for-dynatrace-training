@@ -219,14 +219,14 @@ then
 			"0") verif="ko"
 			      until [ $verif = "ok" ]; do read  -p "0) Tenant : <YYY>.live.dynatrace.com  or <domaine-name>/e/<tenant> or <YYY>.sprint.dynatracelabs.com  (without https://):    " MyTenant2
 			       if [[ $MyTenant2 =~ ^[a-zA-Z]++[0-9]++\.[a-zA-Z]++\.dynatrace\.com$ ]] ||  [[ $MyTenant2 =~ ^[a-zA-Z0-9\.-_]++\/e\/[a-zA-Z0-9-]++$ ]] || [[ $MyTenant2 =~ ^[a-zA-Z]++[0-9]++\.[a-zA-Z]++\.dynatracelabs\.com$ ]] ;then
-				verif="ok";sed -i s/MyTenant="${MyTenant////\\/}"/MyTenant="${MyTenant2////\\/}"/g env.sh;. env.sh
+				verif="ok";sed -i s@DT_TENANT_URL=https://$MyTenant@DT_TENANT_URL=https://$MyTenant2@g env.sh;. env.sh
 				else verif="ko"; echo "bad saas tenant address" ; value="ko";read pressanycase;
 			     fi;done
 			;;
 			"1") verif="ko"
 			      until [ $verif = "ok" ]; do read  -p "1) API Token : dt0c01.abcdefghij.abcdefghijklmn :    " MyToken2
 			       if [[ $MyToken2 =~ ^dt[a-z0-9]++\.[a-zA-Z0-9]++\.[a-zA-Z0-9]++ ]] ;then
-				verif="ok";sed -i s/MyToken=$MyToken/MyToken=$MyToken2/g env.sh;. env.sh
+				verif="ok";sed -i s/DT_API_TOKEN=$MyToken/DT_API_TOKEN=$MyToken2/g env.sh;. env.sh
 				else verif="ko"; echo "bad API Token" ; value="ko";read pressanycase;
 			     fi;done
 			;;
