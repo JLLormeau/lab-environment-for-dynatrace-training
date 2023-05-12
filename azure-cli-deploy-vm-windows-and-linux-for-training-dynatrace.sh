@@ -251,7 +251,7 @@ then
 	done
 else
         echo 'ENVIRONMENT : Linux'
-        echo '#User;Env Linux;Password' >>  delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
+        #echo '#User;Env Linux;Password' >>  delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
 fi
 
 echo ""
