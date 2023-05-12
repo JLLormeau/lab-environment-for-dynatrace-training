@@ -66,7 +66,7 @@ do
         if [[ $MONGO_STOP = [Y] && $EASYTRAVEL_ENV = [Y] ]]; then echo "7) stop Mongo : hour (GMT) of Mongo shutdown           ="$HOUR_MONGO_STOP; fi
         if [[ $EASYTRAVEL_ENV = [Y] ]]; then echo "8) full configuration : OneAgent + run Monaco          ="$FULL_INSTALLATION;fi
         echo "9) start env : VM started after installation           ="$VM_STARTED
-	echo "10) replace ssh key with new genkey :                  ="$NEW_GENKEY
+	echo "10) replace ssh key with new genkey (select Y for first install) ="$NEW_GENKEY
 	#echo "11) short format scenario :                            ="$SHORT_FORMAT
         echo "A) apply and deploy the VM - (Ctrl/c to quit)"
         echo ""
