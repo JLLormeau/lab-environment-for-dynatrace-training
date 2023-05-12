@@ -49,6 +49,7 @@ do
 	export mz_name=$HostGroupName
 	export slo_prefix=$HostGroupName
 	export Hostname=$DOMAIN_NAME_DEFAULT$X$i"."$LOCATION".cloudapp.azure.com"
+	export DomainName=$Hostname
 	echo DomainName=$Hostname
 	number_of_email=`echo $list_user | tr -cd '@' | wc -c`
         
