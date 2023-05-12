@@ -136,7 +136,7 @@ else
         echo '#User;Env Linux;Password' >>  delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
 fi
 
-chmod +x delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
+#chmod +x delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
 
 ###
 ##Write information abouth configuration for validation before creating the VM
