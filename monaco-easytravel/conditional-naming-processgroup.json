@@ -1,7 +1,7 @@
 {
  "displayName": "{{ .name }}",
  "enabled": true,
- "nameFormat": "[{HostGroup:Name}] - {DockerContainerGroupInstance:ContainerName}",
+ "nameFormat": "[{HostGroup:Name}] - {ProcessGroup:KeyContainerName}",
  "rules": [
   {
    "comparisonInfo": {
