@@ -14,15 +14,15 @@ configs:
 - id: config-id
   config:
     name:
-      format: "{{ .HostGroupName }}-www"
+      format: "{{ .hostgroup }}-www"
       type: compound
       references:
-        - HostGroupName
-      HostGroupName:
+        - hostgroup
+      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -114,15 +114,10 @@ configs:
 - id: config-id
   config:
     name:
-      format: "{{ .HostGroupName }} - http monitor"
-      type: compound
-      references:
-        - HostGroupName
-      HostGroupName:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -140,7 +135,7 @@ configs:
         name: PublicSyntheticLocation2
         type: environment
     template: synthetic-http-monitor.json
-    skip: false
+    skip: true
   type:
     api: synthetic-monitor
 ## browser monitor
@@ -148,15 +143,15 @@ configs:
 - id: config-id-2
   config:
     name: 
-      format: "{{ .HostGroupName }} - click path"
+      format: "{{ .hostgroup }} - click path"
       type: compound
       references:
-        - HostGroupName
-      HostGroupName:
+        - hostgroup
+      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
-      HostGroupName:
+      hostgroup:
         type: environment
         name: HostGroupName
       applicationId:
@@ -174,7 +169,7 @@ configs:
         name: PublicSyntheticLocation2
         type: environment
     template: synthetic-browser-monitor.json
-    skip: false
+    skip: true
   type:
     api: synthetic-monitor
 ## maintenance window based on management zone (disable notification on not business hours) 
@@ -202,7 +197,7 @@ configs:
       name: HostGroupName
       type: environment
     parameters:
-      HostGroupName:
+      hostgroup:
         name: HostGroupName
         type: environment
       domain:
@@ -221,7 +216,7 @@ configs:
   type:
     api: dashboard
 # generic config
-## auto tag "app" 
+## auto tag "app" use regex _(.++)
 - id: tag-env
   config:
     name: env
@@ -231,11 +226,21 @@ configs:
     settings:
       schema: builtin:tags.auto-tagging
       scope: environment
-## auto tag "env"
+## auto tag "env" use regex ([^_]++)
 - id: tag-app
   config:
     name: app
     template: auto-tag-app.json
+    skip: false
+  type:
+    settings:
+      schema: builtin:tags.auto-tagging
+      scope: environment
+## auto tag "bu" use metadata bu
+- id: tag-bu
+  config:
+    name: bu
+    template: auto-tag-bu.json
     skip: false
   type:
     settings:
