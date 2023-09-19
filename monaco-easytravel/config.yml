@@ -114,11 +114,6 @@ configs:
 - id: config-id
   config:
     name:
-      format: "{{ .hostgroup }} - http monitor"
-      type: compound
-      references:
-        - hostgroup
-      hostgroup:
         type: environment
         name: HostGroupName
     parameters:
