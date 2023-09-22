@@ -4,15 +4,10 @@
 
 . ./env.sh
 response=$1
-if [ $START_ENV -lt 1 ]
-then
-	END_ENV=$(($NBENV - 1))
-else
-	END_ENV=$(($NBENV-$START_ENV))
-fi
+END_ENV=$(($NBENV+1-$START_ENV))
 
 
-while [ $response != "stress" ] && [ $response != "restart" ] && [ $response != "restartmongo" ] && [ $response != "stopmongo" ] && [ $response != "issue" ] && [ $response != "status" ] && [ $response != "start" ] && [ $response != "stop" ]
+while [[ $response != "stress" ]] && [[ $response != "restart" ]] && [[ $response != "restartmongo" ]] && [[ $response != "stopmongo" ]] && [[ $response != "issue" ]] && [[ $response != "status" ]] && [[ $response != "start" ]] && [[ $response != "stop" ]]
 	do
 		read  -p "start | stop | restart | restartmongo | stopmongo | issue | stress | status = " response
 	done
@@ -24,7 +19,7 @@ then
 fi
 
 i=$START_ENV
-while [ $i -le $END_ENV ]
+while [[ $i -le $END_ENV ]]
 do
 	echo $i
 	if [ $i -lt 5 ]
