@@ -109,7 +109,7 @@
  "realUserMonitoringEnabled": true,
  "sessionReplayConfig": {
   "costControlPercentage": 100,
-  "enabled": false
+  "enabled": true
  },
  "type": "AUTO_INJECTED",
  "userActionAndSessionProperties": [],
