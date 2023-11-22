@@ -4,7 +4,7 @@
 
 . ./env.sh
 response=$1
-END_ENV=$(($NBENV+1-$START_ENV))
+END_ENV=$(($START_ENV + $NBENV))
 
 
 while [[ $response != "stress" ]] && [[ $response != "restart" ]] && [[ $response != "restartmongo" ]] && [[ $response != "stopmongo" ]] && [[ $response != "issue" ]] && [[ $response != "status" ]] && [[ $response != "start" ]] && [[ $response != "stop" ]]
@@ -19,7 +19,7 @@ then
 fi
 
 i=$START_ENV
-while [[ $i -le $END_ENV ]]
+while [[ $i -lt $END_ENV ]]
 do
 	echo $i
 	if [ $i -lt 5 ]
