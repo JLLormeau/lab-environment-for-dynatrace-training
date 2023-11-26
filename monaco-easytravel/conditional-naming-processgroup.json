@@ -12,7 +12,9 @@
     "value": null
    },
    "key": {
-    "attribute": "DOCKER_CONTAINER_NAME"
+    "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+    "dynamicKey": "CONTAINER_NAME",
+    "type": "PROCESS_PREDEFINED_METADATA_KEY"
    }
   }
  ],
