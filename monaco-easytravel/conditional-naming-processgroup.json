@@ -12,7 +12,7 @@
     "value": null
    },
    "key": {
-    "attribute": "KEY_CONTAINER_NAME"
+    "attribute": "DOCKER_CONTAINER_NAME"
    }
   }
  ],
