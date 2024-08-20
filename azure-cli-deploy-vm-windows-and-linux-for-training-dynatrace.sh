@@ -402,7 +402,11 @@ do
         echo "az group delete --name "$RESOURCE_GROUP" --y" >> delete_ressourcegroup_$DOMAIN_NAME_$TIME.sh
 done
 
-./monaco deploy manifest.yaml -p monaco-simply-smarter
+
+if [[ $FULL_INSTALLATION = [Y] ]]
+then
+	./monaco deploy manifest.yaml -p monaco-simply-smarter
+fi
 
 echo 'END installation='`date +%Y%m%d%H%M%S`
 } | tee $log
