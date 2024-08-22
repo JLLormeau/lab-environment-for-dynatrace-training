@@ -23,7 +23,7 @@
     },
     "ubuntuOSVersion": {
       "type": "string",
-      "defaultValue": "22_04-LTS",
+      "defaultValue": "22_04-lts",
       "metadata": {
         "description": "The Ubuntu version for deploying the Docker containers. This will pick a fully patched image of this given Ubuntu version. Allowed values: 14.04.4-LTS, 15.10, 16.04.0-LTS"
       },
@@ -32,8 +32,8 @@
         "15.10",
         "16.04.0-LTS",
         "18.04-LTS",
-        "20_04-LTS",
-        "22_04-LTS"
+        "20_04-lts",
+        "22_04-lts"
       ]
     },
       "location": {
