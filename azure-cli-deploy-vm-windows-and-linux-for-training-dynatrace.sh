@@ -314,7 +314,7 @@ do
         echo 'create vm : '$DOMAIN'.'$LOCATION'.cloudapp.azure.com'
         az deployment group create \
                 --resource-group $RESOURCE_GROUP \
-                --template-uri https://raw.githubusercontent.com/JLLormeau/lab-environment-for-dynatrace-training/master/azuredeploy-linux.json \
+                --template-uri https://raw.githubusercontent.com/JLLormeau/lab-environment-for-dynatrace-training/master/azuredeploy-ubuntu18.json \
                 --parameters  adminUsername="$user" adminPasswordOrKey="$PASSWORD" authenticationType="password" dnsNameForPublicIP="$DOMAIN" vmSize="$SIZE_LINUX";
 
         ###install shellinabox to go to the linux env from a browser (port 443) + docker + ssh
