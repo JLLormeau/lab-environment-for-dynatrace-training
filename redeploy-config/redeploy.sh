@@ -9,7 +9,7 @@ cd ..
 
 
 i=$START_ENV
-while [ $i -le $ENDENV ]
+while [ $i -le $NBENV ]
 do
         if [ $i -lt 5 ]
         then
