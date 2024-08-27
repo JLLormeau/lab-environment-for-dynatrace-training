@@ -4,18 +4,12 @@
 
 . ../env.sh
 DIR_MONACO="template-monaco-for-easytravel"
-if [ $START_ENV -lt 1 ]
-then
-	END_ENV=$(($NBENV - 1))
-else
-	END_ENV=$(($NBENV-$START_ENV))
-fi
 response=no
 cd ..
 
 
 i=$START_ENV
-while [ $i -le $END_ENV ]
+while [ $i -le $ENDENV ]
 do
         if [ $i -lt 5 ]
         then
