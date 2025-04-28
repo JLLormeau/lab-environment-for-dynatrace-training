@@ -8,10 +8,10 @@ echo $domain
 echo $user
 #sudo /home/dynatracelab_easytraveld/start-stop-easytravel.sh stop
 #sudo apt update
-#sudo snap install --classic certbot
-#sleep 2
-#sudo certbot certonly --standalone -d $domain --key-type rsa --quiet --agree-tos
-#sleep 2
+sudo snap install --classic certbot
+sleep 2
+sudo certbot certonly --standalone -d $domain --key-type rsa --quiet --agree-tos
+sleep 2
 sudo cat /etc/letsencrypt/live/$domain/privkey.pem > /home/$user/cert.pem
 sudo cat /etc/letsencrypt/live/$domain/fullchain.pem >> /home/$user/cert.pem
 sudo rm /var/lib/shellinabox/*.pem
