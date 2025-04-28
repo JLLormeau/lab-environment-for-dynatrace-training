@@ -318,8 +318,9 @@ do
                 --parameters  adminUsername="$user" adminPasswordOrKey="$PASSWORD" authenticationType="password" dnsNameForPublicIP="$DOMAIN" vmSize="$SIZE_LINUX";
 
         ###install shellinabox to go to the linux env from a browser (port 443) + docker + ssh
-        az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install shellinabox && sudo sed -i 's/4200/443/g' /etc/default/shellinabox && sudo apt-get install -y docker-compose && cd /home/user"$X$i"/.ssh && echo '"$RSAPUB1" "$RSAPUB2" "$RSAPUB3"'>> authorized_keys";
-	 
+        #az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install shellinabox && sudo sed -i 's/4200/443/g' /etc/default/shellinabox && sudo apt-get install -y docker-compose && cd /home/user"$X$i"/.ssh && echo '"$RSAPUB1" "$RSAPUB2" "$RSAPUB3"'>> authorized_keys";
+        az vm run-command invoke -g "$RESOURCE_GROUP" -n "$DOMAIN" --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install shellinabox && sudo sed -i 's/4200/443/g' /etc/default/shellinabox && sudo apt-get install -y docker-compose && cd /home/user"$X$i"/.ssh && echo '"$RSAPUB1" "$RSAPUB2" "$RSAPUB3"'>> authorized_keys && cd /home/user"$X$i" && wget https://raw.githubusercontent.com/JLLormeau/lab-environment-for-dynatrace-training/refs/heads/main/letsencrypt.sh && sudo sh /home/user"$X$i"/letsencrypt.sh "$DOMAIN" user"$X$i"";
+ 
 	###Install EasyTravel
         if [[ $EASYTRAVEL_ENV = [Y] ]]
         then
